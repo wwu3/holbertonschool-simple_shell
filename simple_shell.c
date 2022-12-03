@@ -3,7 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
-
+#include "shell.h"
+extern char ** environ;
 int main()
 {
 	char *buff, *test;
@@ -13,13 +14,12 @@ int main()
 	int num, status, argc;
 	pid_t child_pid;
 	char *argv[1000];
-		
+
 	buff = malloc(buffsize * sizeof(char));
 	if (buff == NULL)
 	{
 		return (-1);
 	}
-	
 	num = 0;
 	argc = 1;
 	while (num == 0)
@@ -28,21 +28,20 @@ int main()
 		putchar(' ');
 
 		getline(&buff, &buffsize, stdin);
-		
+
 		buff = strtok(buff, s);
-		argv[0] = strtok(buff, delim);
-		test = strtok(NULL, delim);
+
 		if (strcmp(buff, "exit") == 0)
 		{
 			return (0);
-		}	
-		while(test != NULL)
-		{
-			argv[argc] = test;
-			argc = argc + 1;
-			test = strtok(NULL, delim);
 		}
-	
+		argc = split_line(buff, delim, argv);
+
+		if (argc <= 0)
+		{
+			return (-1);
+		}
+
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -50,9 +49,8 @@ int main()
 		}
 		if (child_pid == 0)
 		{
-			printf("%s", argv[0]);
-			
-			if (execve(argv[0], argv, NULL) == -1)
+
+			if (execvp(argv[0], argv) == -1)
 			{
 				perror("Error:");
 			}
@@ -63,4 +61,4 @@ int main()
 		}
 	}
 	return (0);
-} 
+}
