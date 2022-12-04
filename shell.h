@@ -2,5 +2,7 @@
 #define _SHELL_H_
 
 int shell();
+int _get_line(char *buffer);
 
 #endif /* _SHELL_H_ */
+
