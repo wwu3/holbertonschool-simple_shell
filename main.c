@@ -18,6 +18,7 @@ int shell()
 	{
 		;
 	}
+	free(buff);
 	return (0);
 
 }
