@@ -5,11 +5,11 @@
  * _get_line - input from users
  *
  * @buffer: a pointer to char
- * return: nothing
+ * return: if return -1, it's eof
  */
-void _get_line(char *buffer)
+int _get_line(char *buffer)
 {
 	size_t size = 32;
 	size_t *psize = &size;
-	getline(&buffer, psize, stdin);
+	return getline(&buffer, psize, stdin);
 }
