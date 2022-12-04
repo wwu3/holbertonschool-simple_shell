@@ -11,5 +11,7 @@ int _get_line(char *buffer)
 {
 	size_t size = 32;
 	size_t *psize = &size;
+	putchar('$');
+	putchar(' ');
 	return getline(&buffer, psize, stdin);
 }
