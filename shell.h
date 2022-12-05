@@ -1,13 +1,15 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
+#include <string.h>
 
 int shell();
+int check_builtin_func(char **command, char **argv);
 
 
-typedef struct built_in_func
+typedef struct japanese_curry
 {
-	char *japanese_curry;
-	int (*func)(char **name)
+	char *name;
+	int (*func)(char **argv)
 } builfunc_t;
 
 int shell_cd();
