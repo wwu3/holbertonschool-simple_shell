@@ -3,6 +3,7 @@
 
 int shell();
 int _get_line(char *buffer);
+int split_line(char *line, char *delim, char *argv[]);
 
 #endif /* _SHELL_H_ */
 
