@@ -18,7 +18,7 @@ int check_builtin_func(char **command)
 		{NULL, NULL}
 	};
 
-	while (func[i] != NULL)
+	while (func[i].func != NULL)
 	{
 		if (strcmp(command[0], func[i].name) == 0)
 		{

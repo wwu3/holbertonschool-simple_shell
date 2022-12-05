@@ -7,6 +7,7 @@ int shell()
 	int num = 0;
 	char *buff;
 	size_t buffsize;
+	const char *delim = " ";
 
 	buffsize = 32;
 	buff = malloc(buffsize * sizeof(char));
@@ -16,7 +17,11 @@ int shell()
 	}
 	while (num == 0)
 	{
-		;
+		if (_get_line(buff) == -1)
+		{
+			return (1);
+		}
+		
 	}
 	free(buff);
 	return (0);
