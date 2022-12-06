@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
+#include "shell.h"
 
-int _execve(const char *path, char *const argv[], char *const envp[])
+int _execve(char *path, char *argv[], char *envp[])
 {
 		pid_t child_pid, parent_pid;
 		int status;
