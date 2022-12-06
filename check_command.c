@@ -26,5 +26,5 @@ int check_builtin_func(char *argv[])
 
 		i = i + 1;
 	}
-	return (0);
+	return (-1);
 }

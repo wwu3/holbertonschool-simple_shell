@@ -13,7 +13,7 @@ int shell_help()
 
 int shell_exit()
 {
-	putchar('y');
+	free(buff);
 	exit(0);
 }
 

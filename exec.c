@@ -4,7 +4,7 @@ int _execve(char *path, char *argv[], char *envp[])
 {
 		pid_t child_pid, parent_pid;
 		int status;
-		
+
 		parent_pid = getppid();
 		child_pid = fork();
 		if (child_pid == -1)

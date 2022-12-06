@@ -12,12 +12,14 @@ int split_line(char *line, char *delim, char *argv[])
 {
 	int argc;
 	char *arg;
+	char *newline = "\n";
 
 	if (line == NULL || delim == NULL)
 	{
 		return (-1);
 	}
 
+	line = strtok(line, newline);
 	arg = strtok(line, delim);
 
 	argc = 0;

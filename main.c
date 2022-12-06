@@ -9,7 +9,7 @@
 
 int shell(char **buff)
 {
-	int num = 0;
+	int num = 0, call = 0;
 	int argc;
 	char *argv[128];
 	char *delim = " ";
@@ -20,14 +20,17 @@ int shell(char **buff)
 		{
 			return (1);
 		}
+
 		argc = split_line(*buff, delim, argv);
 		if (argc <= 0)
 		{
 			return (-1);
 		}
-		if (check_builtin_func(argv) == -1)
+
+		call = check_builtin_func(argv);
+		if (call == -1)
 		{
-			return(_execve(argv[0], argv, NULL));
+			_execve(argv[0], argv, NULL);
 		}
 	}
 	return (0);
@@ -50,7 +53,5 @@ int main()
 	}
 
 	shell(&buff);
-
-	free(buff);
 	return(0);
 }
