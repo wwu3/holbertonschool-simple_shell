@@ -1,12 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
+
 /**
  *
  *
  *
 */
-int check_builtin_func(char **command,char **argv)
+int check_builtin_func(char *argv[])
 {
 	int i;
 
@@ -20,7 +19,7 @@ int check_builtin_func(char **command,char **argv)
 
 	while (f[i].func != NULL)
 	{
-		if (strcmp(command[0], f[i].name) == 0)
+		if (strcmp(argv[0], f[i].name) == 0)
 		{
 			return (f[i].func(argv));
 		}
