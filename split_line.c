@@ -1,4 +1,3 @@
-#include <string.h>
 #include "shell.h"
 
 /**
@@ -8,27 +7,27 @@
  * Return: number of tokens, -1 when in error
  */
 
-int split_line(char *line, char *delim, char *argv[])
+int split_line(char *line, char *argv[])
 {
-	int argc;
+	int i;
 	char *arg;
-	char *newline = "\n";
+	char *delim= " \t\n\r";
 
-	if (line == NULL || delim == NULL)
+	if (line == NULL)
 	{
 		return (-1);
 	}
 
-	line = strtok(line, newline);
-	arg = strtok(line, delim);
+	arg = strtok(line, "\n");
 
-	argc = 0;
+	i = 0;
 	while(arg != NULL)
 	{
-		argv[argc] = arg;
-		argc = argc + 1;
+		printf("%s", argv[i]);
+		argv[i] = arg;
+		i = i + 1;
 		arg = strtok(NULL, delim);
 	}
-	argv[argc] = 0;
-	return (argc);
+	free(line);
+	return (i);
 }

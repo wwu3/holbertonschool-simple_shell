@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
 
 /**
@@ -7,27 +5,27 @@
  *
  */
 
-int shell(char **buff)
+int shell()
 {
+	char *buff;
 	int num = 0, call = 0;
 	int argc;
 	char *argv[128];
-	char *delim = " ";
 
-	while (num == 0)
+	while (1)
 	{
-		if (_get_line(*buff) == -1)
+		buff = _get_line();
+		if (_strlen(buff) > 128)
 		{
-			return (1);
+			return(-1);
 		}
-
-		argc = split_line(*buff, delim, argv);
+		argc = split_line(buff, argv);
 		if (argc <= 0)
 		{
 			return (-1);
 		}
 
-		call = check_builtin_func(argv);
+		check_builtin_func(argv);
 		if (call == -1)
 		{
 			_execve(argv[0], argv, NULL);
@@ -43,15 +41,6 @@ int shell(char **buff)
 */
 int main()
 {
-	char *buff;
-	size_t buffsize = 128;
-
-	buff = malloc(buffsize * sizeof(char));
-	if (buff == NULL)
-	{
-		return (-1);
-	}
-
-	shell(&buff);
+	shell();
 	return(0);
 }
