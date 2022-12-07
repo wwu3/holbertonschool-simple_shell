@@ -24,8 +24,8 @@ int shell()
 		{
 			return (-1);
 		}
-
-		check_builtin_func(argv);
+		//free(buff);
+		call = check_builtin_func(argv);
 		if (call == -1)
 		{
 			_execve(argv[0], argv, NULL);

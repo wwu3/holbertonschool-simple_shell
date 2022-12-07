@@ -9,9 +9,9 @@
 
 int split_line(char *line, char *argv[])
 {
-	int i;
+	int i = 0;
 	char *arg;
-	char *delim= " \t\n\r";
+	const char *delim= " \t\n\r";
 
 	if (line == NULL)
 	{
@@ -19,15 +19,13 @@ int split_line(char *line, char *argv[])
 	}
 
 	arg = strtok(line, "\n");
+	arg = strtok(arg, delim);
 
-	i = 0;
 	while(arg != NULL)
 	{
-		printf("%s", argv[i]);
 		argv[i] = arg;
 		i = i + 1;
 		arg = strtok(NULL, delim);
 	}
-	free(line);
 	return (i);
 }
