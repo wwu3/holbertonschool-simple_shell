@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int _execve(char *path, char *argv[], char *envp[])
+int _execve(char *path, char *argv[], char **env)
 {
 		pid_t child_pid, parent_pid;
 		int status;
@@ -13,9 +13,8 @@ int _execve(char *path, char *argv[], char *envp[])
 		}
 		if (child_pid == 0)
 		{
-			printf("%s", argv[0]);
 
-			if (execve(argv[0], argv, NULL) == -1)
+			if (execve(argv[0], argv, env) == -1)
 			{
 				perror(argv[0]);
 				return (-1);

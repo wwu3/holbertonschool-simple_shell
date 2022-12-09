@@ -1,5 +1,6 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -8,20 +9,20 @@
 #include <sys/types.h>
 
 int shell();
-int _get_line(char *buffer);
-int split_line(char *line, char *delim, char *argv[]);
-int check_builtin_func(char *argv[]);
-int _execve(char *path, char *argv[], char *envp[]);
+char *_get_line();
+int split_line(char *line, char *argv[]);
+int check_builtin_func(char *argv[], char **env);
+int _execve(char *path, char *argv[], char **envp);
+unsigned int _strlen(char *s);
 
-typedef struct japanese_curry
+typedef struct
 {
 	char *name;
-	int (*func)(char *argv[]);
+	int (*func)(char *argv[], char **env);
 } builfunc_t;
 
-int shell_cd();
-int shell_help();
-int shell_exit();
+int shell_cd(char *argv[], char **env);
+int shell_exit(char *argv[], char **env);
+int shell_env(char *argv[], char **env);
 
 #endif /* _SHELL_H_ */
-

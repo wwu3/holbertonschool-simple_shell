@@ -1,37 +1,50 @@
 #include "shell.h"
 
 /**
- * shell_cd - implementing cd system call
- * @pth: path of directory
+ * shell_cd - implementing cd command
+ * @argv: path of directory
  * Return: -1 if function fails
  */
 
-int shell_cd(char *pth)
+int shell_cd(char *argv[], char** env)
 {
-    char path[200];
-    char cwd[200];
 
-    strcpy(path,pth);
-    if(pth[0] != '/')
-    {// true for the dir in cwd
-        getcwd(cwd, sizeof(cwd));
-        strcat(cwd, "/");
-        strcat(cwd, path);
-        chdir(cwd);
-    }
-    else
-    {//true for dir w.r.t. /
-        chdir(pth);
-    }
-    return (0);
+        char cwd[128];
+
+	if(argv[1][0] != '/')
+	{
+		getcwd(cwd, sizeof(cwd));
+		strcat(cwd, "/");
+		strcat(cwd, argv[1]);
+		chdir(cwd);
+	}
+	else
+	{
+		chdir(argv[1]);
+	}
+	return (0);
 }
 
-int shell_help()
+/**
+ * _getenv - Prints environment variables
+  * Return: -1 if fails
+ */
+
+
+int shell_env(char *argv[], char **environ)
 {
-	;
+	int i;
+
+	i = 0;
+	while (environ[i] != NULL)
+	{
+		printf("%s\n", environ[i]);
+		i = i + 1;
+	}
+	return (1);
 }
 
-int shell_exit()
+int shell_exit(char *argv[], char **env)
 {
 	exit(0);
 }

@@ -1,57 +1,48 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
+extern char **environ;
 
 /**
- *
- *
+ *shell - Prompt to user input 
+ *Return: 0
  */
 
-int shell(char **buff)
+int shell()
 {
-	int num = 0, call = 0;
+	char *buff;
+	int num = 0, call = 0, i = 0;
 	int argc;
 	char *argv[128];
-	char *delim = " ";
 
-	while (num == 0)
+	while (1)
 	{
-		if (_get_line(*buff) == -1)
+		buff = _get_line();
+		if (_strlen(buff) > 128)
 		{
-			return (1);
+		        continue;
 		}
+		argc = split_line(buff, argv);
 
-		argc = split_line(*buff, delim, argv);
 		if (argc <= 0)
 		{
-			return (-1);
+			continue;
 		}
-
-		call = check_builtin_func(argv);
+		call = check_builtin_func(argv, environ);
 		if (call == -1)
 		{
-			_execve(argv[0], argv, NULL);
+			_execve(argv[0], argv, environ);
 		}
 	}
 	return (0);
 }
 
 /**
- *
+ * main - 
  *
  *
 */
 int main()
 {
-	char *buff;
-	size_t buffsize = 128;
 
-	buff = malloc(buffsize * sizeof(char));
-	if (buff == NULL)
-	{
-		return (-1);
-	}
-
-	shell(&buff);
+	shell();
 	return(0);
 }
