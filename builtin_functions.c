@@ -41,7 +41,7 @@ int shell_env(char *argv[], char **environ)
 		printf("%s\n", environ[i]);
 		i = i + 1;
 	}
-	return (1);
+	return (0);
 }
 
 int shell_exit(char *argv[], char **env)
