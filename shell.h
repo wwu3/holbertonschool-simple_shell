@@ -7,15 +7,21 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+extern char **environ;
 
-int shell();
+int shell(void);
 char *_get_line();
 int split_line(char *line, char *argv[]);
 int check_builtin_func(char *argv[], char **env);
 int _execve(char *path, char *argv[], char **envp);
 int _strlen(char *s);
 
-typedef struct
+/**
+ * struct builfunc - Structure of builtin functions
+ * @name: command to match
+ * @func: Name of the function
+ */
+typedef struct builfunc
 {
 	char *name;
 	int (*func)(char *argv[], char **env);

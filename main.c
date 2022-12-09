@@ -1,12 +1,12 @@
 #include "shell.h"
-extern char **environ;
+/*extern char **environ;*/
 
 /**
  *shell - Prompt to user input
  *Return: 0 on success and -1 if fails
  */
 
-int shell()
+int shell(void)
 {
 	char *buff;
 	int call;
@@ -23,7 +23,7 @@ int shell()
 		}
 		if (_strlen(buff) > 128)
 		{
-		        continue;
+			continue;
 		}
 		argc = split_line(buff, argv);
 		free(buff);
@@ -45,9 +45,9 @@ int shell()
  * Return: Always 0
  *
 */
-int main()
+int main(void)
 {
 
 	shell();
-	return(0);
+	return (0);
 }

@@ -51,8 +51,8 @@ int shell_env(__attribute__((unused)) char *argv[], char **environ)
  * @argv: Unused variable
  * @env: Unused variable
  */
-int shell_exit(__attribute__((unused))char *argv[],
-	       __attribute__((unused))char **env)
+int shell_exit(__attribute__((unused)) char *argv[],
+	       __attribute__((unused)) char **env)
 {
 	exit(0);
 }

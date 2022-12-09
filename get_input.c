@@ -24,7 +24,7 @@ char *_get_line()
 /**
  * _strlen - returns the length of a string
  * @s: a string to measure
-  * Return: 0
+ * Return: 0 if fails
  */
 int _strlen(char *s)
 {
@@ -40,5 +40,4 @@ int _strlen(char *s)
 	{
 		return (0);
 	}
-
 }

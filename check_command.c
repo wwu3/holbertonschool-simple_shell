@@ -1,10 +1,12 @@
 #include "shell.h"
 
 /**
- *
- *
- *
-*/
+ * check_builtin_func - check and execute the corresponding function
+ * @argv: pointer to char input
+ * @env: Environment variable
+ * Return: -1 if fails
+ */
+
 int check_builtin_func(char *argv[], char **env)
 {
 	int i;
