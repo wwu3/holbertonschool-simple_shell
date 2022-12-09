@@ -7,12 +7,11 @@
  * Return: -1 if function fails
  */
 
-int shell_cd(char *argv[], __attribute__((unused)) char** env)
+int shell_cd(char *argv[], __attribute__((unused)) char **env)
 {
+	char cwd[128];
 
-        char cwd[128];
-
-	if(argv[1][0] != '/')
+	if (argv[1][0] != '/')
 	{
 		getcwd(cwd, sizeof(cwd));
 		strcat(cwd, "/");
@@ -52,7 +51,8 @@ int shell_env(__attribute__((unused)) char *argv[], char **environ)
  * @argv: Unused variable
  * @env: Unused variable
  */
-int shell_exit(__attribute__((unused)) char *argv[], __attribute__((unused)) char **env)
+int shell_exit(__attribute__((unused)) char *argv[],
+	       __attribute__((unused)) char **env)
 {
 	exit(0);
 }
