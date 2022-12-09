@@ -2,7 +2,7 @@
 
 /**
  * shell_cd - implementing cd command
- * @pth: path of directory
+ * @argv: path of directory
  * Return: -1 if function fails
  */
 
@@ -25,9 +25,23 @@ int shell_cd(char *argv[])
 	return (0);
 }
 
-int shell_help()
+/**
+ * _getenv - Prints environment variables
+  * Return: -1 if fails
+ */
+
+extern char **environ;
+int shell_env()
 {
-	;
+	int i;
+	printf("***********HAPPY*********\n");
+	i = 0;
+	while (environ[i] != NULL)
+	{
+		printf("%s\n", environ[i]);
+		i = i + 1;
+	}
+	return (0);
 }
 
 int shell_exit()
