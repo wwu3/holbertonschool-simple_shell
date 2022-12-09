@@ -12,7 +12,7 @@ int check_builtin_func(char *argv[])
 	i = 0;
 	builfunc_t f[]={
 		{"cd", shell_cd},
-		{"help", shell_help},
+		{"env", shell_env},
 		{"exit", shell_exit},
 		{NULL, NULL}
 	};
@@ -25,6 +25,6 @@ int check_builtin_func(char *argv[])
 		}
 
 		i = i + 1;
-	}
+		}
 	return (-1);
 }
