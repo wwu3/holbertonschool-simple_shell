@@ -1,8 +1,9 @@
 #include "shell.h"
+extern char **environ;
 
 /**
- *
- *
+ *shell - Prompt to user input 
+ *Return: 0
  */
 
 int shell()
@@ -25,17 +26,17 @@ int shell()
 		{
 			continue;
 		}
-		call = check_builtin_func(argv);
+		call = check_builtin_func(argv, environ);
 		if (call == -1)
 		{
-			_execve(argv[0], argv, NULL);
+			_execve(argv[0], argv, environ);
 		}
 	}
 	return (0);
 }
 
 /**
- *
+ * main - 
  *
  *
 */

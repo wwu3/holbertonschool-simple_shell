@@ -6,7 +6,7 @@
  * Return: -1 if function fails
  */
 
-int shell_cd(char *argv[])
+int shell_cd(char *argv[], char** env)
 {
 
         char cwd[128];
@@ -30,8 +30,8 @@ int shell_cd(char *argv[])
   * Return: -1 if fails
  */
 
-extern char **environ;
-int shell_env()
+
+int shell_env(char *argv[], char **environ)
 {
 	int i;
 	printf("***********HAPPY*********\n");
@@ -41,10 +41,10 @@ int shell_env()
 		printf("%s\n", environ[i]);
 		i = i + 1;
 	}
-	return (0);
+	return (1);
 }
 
-int shell_exit()
+int shell_exit(char *argv[], char **env)
 {
 	exit(0);
 }

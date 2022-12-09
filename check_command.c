@@ -5,7 +5,7 @@
  *
  *
 */
-int check_builtin_func(char *argv[])
+int check_builtin_func(char *argv[], char **env)
 {
 	int i;
 
@@ -21,7 +21,7 @@ int check_builtin_func(char *argv[])
 	{
 		if (strcmp(argv[0], f[i].name) == 0)
 		{
-			return (f[i].func(argv));
+			return (f[i].func(argv, env));
 		}
 
 		i = i + 1;
