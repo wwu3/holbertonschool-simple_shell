@@ -26,7 +26,7 @@ int shell()
 		        continue;
 		}
 		argc = split_line(buff, argv);
-
+		free(buff);
 		if (argc <= 0)
 		{
 			continue;
