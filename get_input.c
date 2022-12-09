@@ -8,12 +8,17 @@
  */
 char *_get_line()
 {
-	int val;
 	char *line = NULL;
       	size_t buff = 0;
+	int check;
+
 	putchar('$');
 	putchar(' ');
-	getline(&line, &buff, stdin);
+	check = getline(&line, &buff, stdin);
+	if (check == -1)
+	{
+		return (NULL);
+	}
 	return (line);
 
 }
@@ -24,9 +29,9 @@ char *_get_line()
  * @
  * Return: void
  */
-unsigned int _strlen(char *s)
+ int _strlen(char *s)
 {
-	unsigned int c;
+	int c;
 
 	c = 0;
 	if (*s != '\0')

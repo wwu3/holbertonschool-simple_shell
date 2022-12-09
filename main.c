@@ -2,20 +2,25 @@
 extern char **environ;
 
 /**
- *shell - Prompt to user input 
- *Return: 0
+ *shell - Prompt to user input
+ *Return: 0 on success and -1 if fails
  */
 
 int shell()
 {
 	char *buff;
-	int num = 0, call = 0, i = 0;
+	int call;
 	int argc;
 	char *argv[128];
 
+	call = 0;
 	while (1)
 	{
 		buff = _get_line();
+		if (buff == NULL)
+		{
+			return (-1);
+		}
 		if (_strlen(buff) > 128)
 		{
 		        continue;
@@ -36,8 +41,8 @@ int shell()
 }
 
 /**
- * main - 
- *
+ * main - starting point
+ * Return: Always 0
  *
 */
 int main()
