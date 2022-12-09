@@ -15,15 +15,14 @@ int check_builtin_func(char *argv[]);
 int _execve(char *path, char *argv[], char *envp[]);
 unsigned int _strlen(char *s);
 
-typedef struct japanese_curry
+typedef struct
 {
 	char *name;
 	int (*func)(char *argv[]);
 } builfunc_t;
 
 int shell_cd();
-int shell_help();
 int shell_exit();
+int shell_env();
 
 #endif /* _SHELL_H_ */
-
