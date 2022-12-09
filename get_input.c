@@ -2,14 +2,12 @@
 
 /**
  * _get_line - input from users
- *
- * @buffer: a pointer to char
- * return: if return -1, it's eof
+ * Return: Pointer to char
  */
 char *_get_line()
 {
 	char *line = NULL;
-      	size_t buff = 0;
+	size_t buff = 0;
 	int check;
 
 	putchar('$');
@@ -26,10 +24,9 @@ char *_get_line()
 /**
  * _strlen - returns the length of a string
  * @s: a string to measure
- * @
- * Return: void
+ * Return: 0 if fails
  */
- int _strlen(char *s)
+int _strlen(char *s)
 {
 	int c;
 
