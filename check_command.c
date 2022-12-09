@@ -5,26 +5,27 @@
  *
  *
 */
-int check_builtin_func(char *argv[])
+int check_builtin_func(char *argv[], char **env)
 {
 	int i;
 
-	i = 0;
-	builfunc_t f[]={
+
+	builfunc_t f[] = {
 		{"cd", shell_cd},
-		{"help", shell_help},
+		{"env", shell_env},
 		{"exit", shell_exit},
 		{NULL, NULL}
 	};
 
+	i = 0;
 	while (f[i].func != NULL)
 	{
 		if (strcmp(argv[0], f[i].name) == 0)
 		{
-			return (f[i].func(argv));
+			return (f[i].func(argv, env));
 		}
 
 		i = i + 1;
-	}
+		}
 	return (-1);
 }

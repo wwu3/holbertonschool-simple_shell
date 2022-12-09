@@ -11,19 +11,18 @@
 int shell();
 char *_get_line();
 int split_line(char *line, char *argv[]);
-int check_builtin_func(char *argv[]);
-int _execve(char *path, char *argv[], char *envp[]);
-unsigned int _strlen(char *s);
+int check_builtin_func(char *argv[], char **env);
+int _execve(char *path, char *argv[], char **envp);
+int _strlen(char *s);
 
-typedef struct japanese_curry
+typedef struct
 {
 	char *name;
-	int (*func)(char *argv[]);
+	int (*func)(char *argv[], char **env);
 } builfunc_t;
 
-int shell_cd();
-int shell_help();
-int shell_exit();
+int shell_cd(char *argv[], char **env);
+int shell_exit(char *argv[], char **env);
+int shell_env(char *argv[], char **env);
 
 #endif /* _SHELL_H_ */
-

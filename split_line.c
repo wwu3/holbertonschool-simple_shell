@@ -27,5 +27,6 @@ int split_line(char *line, char *argv[])
 		i = i + 1;
 		arg = strtok(NULL, delim);
 	}
+	argv[i] = 0;
 	return (i);
 }

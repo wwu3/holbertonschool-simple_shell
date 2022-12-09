@@ -1,46 +1,53 @@
 #include "shell.h"
+extern char **environ;
 
 /**
- *
- *
+ *shell - Prompt to user input
+ *Return: 0 on success and -1 if fails
  */
 
 int shell()
 {
 	char *buff;
-	int num = 0, call = 0;
+	int call;
 	int argc;
 	char *argv[128];
 
+	call = 0;
 	while (1)
 	{
 		buff = _get_line();
-		if (_strlen(buff) > 128)
-		{
-			return(-1);
-		}
-		argc = split_line(buff, argv);
-		if (argc <= 0)
+		if (buff == NULL)
 		{
 			return (-1);
 		}
-		//free(buff);
-		call = check_builtin_func(argv);
+		if (_strlen(buff) > 128)
+		{
+		        continue;
+		}
+		argc = split_line(buff, argv);
+
+		if (argc <= 0)
+		{
+			continue;
+		}
+		call = check_builtin_func(argv, environ);
 		if (call == -1)
 		{
-			_execve(argv[0], argv, NULL);
+			_execve(argv[0], argv, environ);
 		}
 	}
 	return (0);
 }
 
 /**
- *
- *
+ * main - starting point
+ * Return: Always 0
  *
 */
 int main()
 {
+
 	shell();
 	return(0);
 }
