@@ -10,8 +10,6 @@ char *_get_line()
 	size_t buff = 0;
 	int check;
 
-	putchar('$');
-	putchar(' ');
 	check = getline(&line, &buff, stdin);
 	if (check == -1)
 	{
