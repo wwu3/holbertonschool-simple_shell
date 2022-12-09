@@ -11,7 +11,6 @@ char *_get_line()
 	int val;
 	char *line = NULL;
       	size_t buff = 0;
-
 	putchar('$');
 	putchar(' ');
 	getline(&line, &buff, stdin);
