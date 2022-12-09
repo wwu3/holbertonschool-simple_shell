@@ -1,11 +1,10 @@
 #include "shell.h"
 
-int _execve(char *path, char *argv[], char **env)
+int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 {
-		pid_t child_pid, parent_pid;
+		pid_t child_pid;
 		int status;
 
-		parent_pid = getppid();
 		child_pid = fork();
 		if (child_pid == -1)
 		{

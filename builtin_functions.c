@@ -3,10 +3,11 @@
 /**
  * shell_cd - implementing cd command
  * @argv: path of directory
+ * @env: unused variable
  * Return: -1 if function fails
  */
 
-int shell_cd(char *argv[], char** env)
+int shell_cd(char *argv[], __attribute__((unused)) char** env)
 {
 
         char cwd[128];
@@ -27,11 +28,13 @@ int shell_cd(char *argv[], char** env)
 
 /**
  * _getenv - Prints environment variables
+ * @argv: unused variable
+ * @environ: environment variable
   * Return: -1 if fails
  */
 
 
-int shell_env(char *argv[], char **environ)
+int shell_env(__attribute__((unused)) char *argv[], char **environ)
 {
 	int i;
 
@@ -44,7 +47,12 @@ int shell_env(char *argv[], char **environ)
 	return (0);
 }
 
-int shell_exit(char *argv[], char **env)
+/**
+ * shell_exit - Exits the shell
+ * @argv: Unused variable
+ * @env: Unused variable
+ */
+int shell_exit(__attribute__((unused)) char *argv[], __attribute__((unused)) char **env)
 {
 	exit(0);
 }

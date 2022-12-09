@@ -13,7 +13,7 @@ char *_get_line();
 int split_line(char *line, char *argv[]);
 int check_builtin_func(char *argv[], char **env);
 int _execve(char *path, char *argv[], char **envp);
-unsigned int _strlen(char *s);
+int _strlen(char *s);
 
 typedef struct
 {

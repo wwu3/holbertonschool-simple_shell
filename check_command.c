@@ -9,14 +9,15 @@ int check_builtin_func(char *argv[], char **env)
 {
 	int i;
 
-	i = 0;
-	builfunc_t f[]={
+
+	builfunc_t f[] = {
 		{"cd", shell_cd},
 		{"env", shell_env},
 		{"exit", shell_exit},
 		{NULL, NULL}
 	};
 
+	i = 0;
 	while (f[i].func != NULL)
 	{
 		if (strcmp(argv[0], f[i].name) == 0)
