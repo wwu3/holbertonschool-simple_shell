@@ -34,14 +34,14 @@ int shell_cd(char *argv[], char** env)
 int shell_env(char *argv[], char **environ)
 {
 	int i;
-	printf("***********HAPPY*********\n");
+
 	i = 0;
 	while (environ[i] != NULL)
 	{
 		printf("%s\n", environ[i]);
 		i = i + 1;
 	}
-	return (1);
+	return (0);
 }
 
 int shell_exit(char *argv[], char **env)
