@@ -23,9 +23,9 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 			if (execve(argv[0], argv, env) == -1)
 			{
 				perror(argv[0]);
-				exit (-1);
+				exit(-1);
 			}
-			exit (0);
+			exit(0);
 		}
 		else
 		{

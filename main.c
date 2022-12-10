@@ -26,7 +26,6 @@ int shell(void)
 			continue;
 		}
 		argc = split_line(buff, argv);
-		free(buff);
 		if (argc <= 0)
 		{
 			continue;
@@ -36,6 +35,7 @@ int shell(void)
 		{
 			_execve(argv[0], argv, environ);
 		}
+		free(buff);
 	}
 	return (0);
 }
