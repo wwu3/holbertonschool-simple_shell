@@ -28,6 +28,7 @@ int shell(void)
 		argc = split_line(buff, argv);
 		if (argc <= 0)
 		{
+			free(buff);
 			continue;
 		}
 		call = check_builtin_func(argv, environ);
