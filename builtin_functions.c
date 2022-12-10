@@ -56,5 +56,5 @@ int shell_exit(__attribute__((unused)) char *argv[],
 	       __attribute__((unused)) char **env)
 {
 	free(argv[0]);
-	exit(0);
+	exit(2);
 }
