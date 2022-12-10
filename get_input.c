@@ -13,6 +13,7 @@ char *_get_line()
 	check = getline(&line, &buff, stdin);
 	if (check == -1)
 	{
+		free(line);
 		return (NULL);
 	}
 	return (line);
