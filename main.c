@@ -23,6 +23,7 @@ int shell(void)
 		}
 		if (_strlen(buff) > 128)
 		{
+			free(buff);
 			continue;
 		}
 		argc = split_line(buff, argv);
