@@ -1,47 +1,42 @@
- SIMPLE SHELL
+SIMPLE SHELL
 
- NAME
-
-         hsh - a simple command line interperter
-
- SYNOPSIS
+hsh - a simple command line interperter
 
 
- DESCRIPTION
+DESCRIPTION
 
- The shell is a simple command line interperter that executes the commands based on users input.
+The shell is a simple command line interperter that executes the commands based on users input.
 
 
- HOW IT WORKS
+HOW IT WORKS
 
- Prompt to the user, representing that it is ready to accept user input.  After it reads the arguments and executes the commands in order which are provided by the user.
+>>Prompt to the user, representing that it is ready to accept user input.  After it reads the arguments and executes the commands in order which are provided by the user.
 
- Order of execution of command -
+Order of execution of command -
 
- User input will split into tokens, these tokens will be compared to builtin command, if it matches then it will execute the  builtin command. Then user returns to pro    mpt. If the match is not found in builtin command, then tokens will be compared to executables in PATH or in PWD.  If the match is found in excutables, then execute t    he command and user return to the prompt.
+User input will split into tokens, these tokens will be compared to builtin command, if it matches then it will execute the  builtin command. Then user returns to pro    mpt. If the match is not found in builtin command, then tokens will be compared to executables in PATH or in PWD.  If the match is found in excutables, then execute t    he command and user return to the prompt.
 
- If the match is not found in both  builtin command and executables in PATH or PWD, then it prints Error Message and user return to the prompt.
+If the match is not found in both  builtin command and executables in PATH or PWD, then it prints Error Message and user return to the prompt.
 
- 
- Builtin Commands
+Builtin Commands
+cd -
+Changes the current working directory
+Ex - cd xyz
 
- cd -
- Changes the current working directory
- Ex - cd xyz
+env -
+Prints environmental variables
+Ex - env
 
- env -
- Prints environmental variables
- Ex - env
+exit -
+Exits the shell
+Ex - exit
 
- exit -
- Exits the shell
- Ex - exit
+>>If executable is found, the shell forks into a child process where the command is executable following any arguments.
 
-If executable is found, the shell forks into a child process where the command is executable following any arguments.
+>>The shell returns the output of the given command and it terminates the child process while the parent process waits for the child process to be terminated.
 
-The shell returns the output of the given command and it terminates the child process while the parent process waits for the child process to be terminated.
+>>Shell returns a new line waiting for the next user input.
 
-Shell returns a new line waiting for the next user input.
 
 AUTHORS
 Pallivi Jagtap, Matt Buckingham and Wendy Wu
