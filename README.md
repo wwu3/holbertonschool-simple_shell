@@ -13,7 +13,14 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#Example of use">Example of use</a></li>
-        <li><a href="#Flowchart">
+        <li><a href="#Flowchart">Flowchart</a></li>
+      </ul>
+    </li>
+    <li><a href="#Authors">Authors</a></li>
+   </ol>
+ </details>  
+ 
+      
         
       
         
