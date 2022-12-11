@@ -19,24 +19,28 @@ A simple UNIX command line interpreter
  
 <!-- Compliation -->      
 ## Complilation
+
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Usage -->
 ## Usage
+
 To use the shell, complie all the .c files and execute the ***hsh*** file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Style of coding -->
 ## Style of coding
+
 All files are written in C programming language following the **betty style of coding**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- File description -->
 ## File description
+
 **builtin_functions.c** -- this file is containing the definition of all the builtin functions which we are executing in this simple shell.  Such as: ***cd***, ***env***, and ***exit*** 
 
 **check_command.c** -- this file is checking and executing the corressponding builtin function.
@@ -78,6 +82,7 @@ The shell reads the given input from the user and splits it into tokens if the g
 
 <!-- AUTHORS -->
 ## Authors
+
 Matt Buckingham, Pallavi Jagtap and Wendy Wu
 
 
