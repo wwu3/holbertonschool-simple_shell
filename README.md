@@ -8,30 +8,34 @@ A simple UNIX command line interpreter
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#Example of use">Example of use</a></li>
-        <li><a href="#Flowchart">Flowchart</a></li>
-      </ul>
-    </li>
+    <li><a href="#Compliation">Compliation</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Style of coding">style of coding</a></li>
+    <li><a href="#File description">File description</a></li>
+    <li> <a href="#About The Project">About The Project</a></li>
     <li><a href="#Authors">Authors</a></li>
    </ol>
  </details>  
  
-      
+<!-- Compliation -->      
 ## Complilation
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Usage -->
 ## Usage
 To use the shell, complie all the .c files and execute the ***hsh*** file
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Style of coding -->
 ## Style of coding
 All files are written in C programming language following the **betty style of coding**
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- File description -->
 ## File description
 **builtin_functions.c** -- this file is containing the definition of all the builtin functions which we are executing in this simple shell.  Such as: ***cd***, ***env***, and ***exit*** 
 
@@ -49,7 +53,8 @@ All files are written in C programming language following the **betty style of c
 
 **split_line.c** -- this file is splitting the line into tokens using the delimiters.
 
-      
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
 
@@ -62,12 +67,6 @@ The shell reads the given input from the user and splits it into tokens if the g
 3. The shell returns the output of the given command and it terminates the child process while the parent process waits for the child process to be terminated.
 
 4. Shell returns a new line waiting for the next user input.
-
-
-
-
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
