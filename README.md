@@ -22,6 +22,8 @@ A simple UNIX command line interpreter
 <!-- COMPLIATION -->      
 ## Compliation
 
+Simply compile files in the repository with the following flags.
+
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 ```
@@ -32,7 +34,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 <!-- USAGE -->
 ## Usage
 
-To use the shell, complie all the .c files and execute the ***hsh*** file
+To use the shell execute the ***hsh*** file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -40,7 +42,7 @@ To use the shell, complie all the .c files and execute the ***hsh*** file
 <!-- STYLE OF CODING -->
 ## Style of coding
 
-All files are written in C programming language following the **betty style of coding**
+All files are written in C programming language following the kernal coding style.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,7 +95,17 @@ The shell reads the given input from the user and splits it into tokens if the g
 <!-- AUTHORS -->
 ## Authors
 ***Matt Buckingham, Pallavi Jagtap and Wendy Wu***
+<br>
+<font color=#00C5FF><font size=2><p><strong><i>This was project produced with :heart: for assessment by Holberton School. Autors: Wendy, Matt and the awesome Pallavi of #C19</p><strong><i></font>
 
+</i>Github Profiles:
+
+[Pallavi](https://github.com/pallavi149)
+
+[Wendy](https://github.com/wendy-holberton)
+
+[Matt](https://github.com/bigBadMatt)
+<i>
 
 
 
