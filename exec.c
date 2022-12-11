@@ -39,7 +39,9 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		}
 		if (child_pid == 0)
 		{
-			if (execve(file_path, argv, env) == -1)
+
+			argv[0] = search_path(argv[0]);
+			if (execve(argv[0], argv, env) == -1)
 			{
 				perror(argv[0]);
 				exit(-1);
@@ -55,5 +57,58 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 				return (exit_status);
 			}
 		}
+
 		return (0);
+}
+
+char *search_path(char *command)
+{
+	char *tmp, *path, *test_path;
+
+        path = strdup(_getenv("PATH"));
+	if (path == NULL)
+	{
+		perror("strdup");
+		return (NULL);
+	}
+	test_path = malloc(128 * sizeof(char));
+	if (test_path == NULL)
+	{
+		perror("malloc");
+		return (NULL);
+	}
+
+	tmp = strtok(path, ":");
+	while (tmp != NULL)
+	{
+		sprintf(test_path, "%s/%s", tmp, command);
+		if (access(test_path, X_OK) == 0)
+		{
+			return(test_path);
+		}
+		tmp = strtok(NULL, ":");
+	}
+	free(test_path);
+	free(path);
+	return (command);
+}
+
+char *_getenv(chakr *name)
+{
+	int i;
+	char *tmp;
+
+	i = 0;
+	while ( environ[i] != NULL)
+	{
+		if(strstr(environ[i], name) != NULL)
+		{
+			tmp = environ[i];
+			tmp = strtok(tmp, "=");
+			tmp = strtok(NULL, "=");
+			return (tmp);
+		}
+		i = i + 1;
+	}
+	return (NULL);
 }
