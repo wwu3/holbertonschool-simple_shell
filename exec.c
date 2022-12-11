@@ -19,7 +19,7 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		}
 		if (child_pid == 0)
 		{
-
+			argv[0] = search_path(argv[0]);
 			if (execve(argv[0], argv, env) == -1)
 			{
 				perror(argv[0]);
@@ -31,5 +31,43 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		{
 			wait(&status);
 		}
+		//free(argv[0]);
 		return (0);
+}
+
+char *search_path(char *command)
+{
+	char *tmp, *path, *test_path;
+	int i = 0;
+
+	test_path = malloc(128 * sizeof(char));
+	if (test_path == NULL)
+	{
+		perror("malloc");
+		return(NULL);
+	}
+
+	while(strcmp(strtok(environ[i], "="), "PATH") != 0)
+	{
+		printf("%s\n", environ[i]);
+		i = i + 1;
+	}
+
+	tmp = strtok(environ[i], "=");
+	tmp = strtok(NULL, "=");
+
+	path = strtok(tmp, ":");
+	while (path != NULL)
+	{
+		sprintf(test_path, "%s/%s", path, command);
+		printf("cheching path :%s\n", path);
+		if (access(test_path, X_OK) == 0)
+		{
+			printf("found a path:%s\n", test_path);
+			return(test_path);
+		}
+		path = strtok(NULL, ":");
+	}
+	printf("no path found\n");
+	return (command);
 }

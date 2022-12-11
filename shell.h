@@ -7,6 +7,7 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+
 extern char **environ;
 
 int shell(void);
@@ -15,6 +16,7 @@ int split_line(char *line, char *argv[]);
 int check_builtin_func(char *argv[], char **env);
 int _execve(char *path, char *argv[], char **envp);
 int _strlen(char *s);
+char *search_path(char *command);
 
 /**
  * struct builfunc - Structure of builtin functions
