@@ -16,13 +16,16 @@ A simple UNIX command line interpreter
     <li><a href="#authors">Authors</a></li>
   </ol>
 </details>  
+
  
+
 <!-- COMPLIATION -->      
 ## Compliation
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- USAGE -->
@@ -33,12 +36,14 @@ To use the shell, complie all the .c files and execute the ***hsh*** file
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+
 <!-- STYLE OF CODING -->
 ## Style of coding
 
 All files are written in C programming language following the **betty style of coding**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- FILE DESCRIPTION -->
@@ -63,6 +68,7 @@ All files are written in C programming language following the **betty style of c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
 
@@ -84,6 +90,7 @@ The shell reads the given input from the user and splits it into tokens if the g
 ![image](https://user-images.githubusercontent.com/113806658/206880804-92dfd2fb-7cb9-4c6d-9d6c-1d1873ea5e2d.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- AUTHORS -->
