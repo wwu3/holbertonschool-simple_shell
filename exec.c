@@ -45,7 +45,7 @@ char *search_path(char *command)
 {
 	char *tmp, *path, *test_path;
 
-        path = strdup(getenv("PATH"));
+        path = strdup(_getenv("PATH"));
 	if (path == NULL)
 	{
 		perror("strdup");
@@ -75,20 +75,18 @@ char *search_path(char *command)
 
 char *_getenv(char *name)
 {
-	int i;
-	char *tmp;
+    int i = 0;
+    char *env_var;
 
-	i = 0;
-	while ( environ[i] != NULL)
-	{
-		if(strstr(environ[i], name) != NULL)
-		{
-			tmp = environ[i];
-			tmp = strtok(tmp, "=");
-			tmp = strtok(NULL, "=");
-			return (tmp);
-		}
-		i = i + 1;
-	}
-	return (NULL);
+    while (environ[i] != NULL)
+    {
+	    if (strncmp(environ[i], name, strlen(name)) == 0)
+	    {
+		    env_var = &environ[i][strlen(name) + 1];
+		    return (env_var);
+	    }
+        i = i + 1;
+    }
+
+    return NULL;
 }
