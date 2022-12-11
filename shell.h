@@ -17,6 +17,7 @@ int check_builtin_func(char *argv[], char **env);
 int _execve(char *path, char *argv[], char **envp);
 int _strlen(char *s);
 char *search_path(char *command);
+char *_getenv(char *name);
 
 /**
  * struct builfunc - Structure of builtin functions

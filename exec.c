@@ -31,43 +31,58 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		{
 			wait(&status);
 		}
-		//free(argv[0]);
+
 		return (0);
 }
 
 char *search_path(char *command)
 {
 	char *tmp, *path, *test_path;
-	int i = 0;
 
+        path = strdup(_getenv("PATH"));
+	if (path == NULL)
+	{
+		perror("strdup");
+		return (NULL);
+	}
 	test_path = malloc(128 * sizeof(char));
 	if (test_path == NULL)
 	{
 		perror("malloc");
-		return(NULL);
+		return (NULL);
 	}
 
-	while(strcmp(strtok(environ[i], "="), "PATH") != 0)
+	tmp = strtok(path, ":");
+	while (tmp != NULL)
 	{
-		printf("%s\n", environ[i]);
-		i = i + 1;
-	}
-
-	tmp = strtok(environ[i], "=");
-	tmp = strtok(NULL, "=");
-
-	path = strtok(tmp, ":");
-	while (path != NULL)
-	{
-		sprintf(test_path, "%s/%s", path, command);
-		printf("cheching path :%s\n", path);
+		sprintf(test_path, "%s/%s", tmp, command);
 		if (access(test_path, X_OK) == 0)
 		{
-			printf("found a path:%s\n", test_path);
 			return(test_path);
 		}
-		path = strtok(NULL, ":");
+		tmp = strtok(NULL, ":");
 	}
-	printf("no path found\n");
+	free(test_path);
+	free(path);
 	return (command);
+}
+
+char *_getenv(chakr *name)
+{
+	int i;
+	char *tmp;
+
+	i = 0;
+	while ( environ[i] != NULL)
+	{
+		if(strstr(environ[i], name) != NULL)
+		{
+			tmp = environ[i];
+			tmp = strtok(tmp, "=");
+			tmp = strtok(NULL, "=");
+			return (tmp);
+		}
+		i = i + 1;
+	}
+	return (NULL);
 }
