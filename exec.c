@@ -41,6 +41,12 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		return (0);
 }
 
+/**
+ * search_path - Searches for a sting in the PATH env
+ * @command: a command to search for
+ * Return: a pointer to the path in which the command was found,
+ * returns the command if nothing was found, and NULL on failure.
+ */
 char *search_path(char *command)
 {
 	char *tmp, *path, *test_path;
@@ -74,6 +80,11 @@ char *search_path(char *command)
 	return (command);
 }
 
+/**
+ * _getenv - retrieves an env variable from the environment
+ * @name: the name of the var
+ * Return: the value stored in the var or NULL on failure
+ */
 char *_getenv(char *name)
 {
     int i = 0;
@@ -89,5 +100,5 @@ char *_getenv(char *name)
         i = i + 1;
     }
 
-    return NULL;
+    return (NULL);
 }
