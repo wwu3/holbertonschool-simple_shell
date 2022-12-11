@@ -18,8 +18,7 @@ A simple UNIX command line interpreter
   </ol>
 </details>  
 
- 
-<!-- COMPLIATION -->      
+ <!-- COMPLIATION -->      
 ## Compliation
 
 Simply compile files in the repository with the following flags.
@@ -27,9 +26,7 @@ Simply compile files in the repository with the following flags.
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 ```
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- USAGE -->
 ## Usage
@@ -37,7 +34,6 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 To use the shell execute the ***hsh*** file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- STYLE OF CODING -->
 ## Style of coding
@@ -50,7 +46,18 @@ All files are written in C programming language following the kernal coding styl
 <!-- FILE DESCRIPTION -->
 ## File description
 
-**builtin_functions.c** -- this file is containing the definition of all the builtin functions which we are executing in this simple shell.  Such as: ***cd***, ***env***, and ***exit*** 
+**builtin_functions.c** -- this file is containing the definition of all the builtin functions which we are executing in this simple shell.  Such as: ***exit***, ***env*** and ***cd***. 
+
+#### Example of ***exit***
+
+<img width="320" alt="Screen Shot 2022-12-11 at 9 51 00 pm" src="https://user-images.githubusercontent.com/113806658/206899407-8eb5d00b-7e18-4b7b-8592-32494c0d8139.png">
+
+#### Example of ***env***
+
+<img width="944" alt="Screen Shot 2022-12-11 at 9 52 53 pm" src="https://user-images.githubusercontent.com/113806658/206899480-f8c09e68-7ed8-42e3-b648-51b5151272f8.png">
+
+
+
 
 **check_command.c** -- this file is checking and executing the corressponding builtin function.
 
