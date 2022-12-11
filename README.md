@@ -95,6 +95,7 @@ The shell reads the given input from the user and splits it into tokens if the g
 <!-- AUTHORS -->
 ## Authors
 ***Matt Buckingham, Pallavi Jagtap and Wendy Wu***
+
 <br>
 <font color=#00C5FF><font size=2><p><strong><i>This was project produced with :heart: for assessment by Holberton School. Autors: Wendy, Matt and the awesome Pallavi of #C19</p><strong><i></font>
 
