@@ -10,7 +10,27 @@
 int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 {
 		pid_t child_pid;
-		int status;
+		int status, exit_status;
+		char file_path[128], *bin_path;
+
+		bin_path = "/bin/";
+
+		if (strncmp(argv[0], bin_path, strlen(bin_path)) != 0)
+		{
+			strcpy(file_path, bin_path);
+			strcat(file_path, argv[0]);
+		}
+		else
+		{
+			strcpy(file_path, argv[0]);
+		}
+
+
+		if (access(file_path, F_OK) != 0)
+		{
+			printf("%s: No such file or directory\n", argv[0]);
+			return (-1);
+		}
 
 		child_pid = fork();
 		if (child_pid == -1)
@@ -19,17 +39,21 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		}
 		if (child_pid == 0)
 		{
-
-			if (execve(argv[0], argv, env) == -1)
+			if (execve(file_path, argv, env) == -1)
 			{
 				perror(argv[0]);
 				exit(-1);
 			}
-			exit(0);
 		}
 		else
 		{
-			wait(&status);
+			waitpid(child_pid, &status, 0);
+			if (WIFEXITED(status))
+			{
+				exit_status = WEXITSTATUS(status);
+				/*printf("Exit status was %d\n", exit_status);*/
+				return (exit_status);
+			}
 		}
 		return (0);
 }
