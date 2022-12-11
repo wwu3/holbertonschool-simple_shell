@@ -12,6 +12,12 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		pid_t child_pid;
 		int status;
 
+		argv[0] = search_path(argv[0]);
+		if (access(argv[0], X_OK) == 0)
+		{
+			perror("non executable");
+			return(-1);
+		}
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -19,7 +25,6 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		}
 		if (child_pid == 0)
 		{
-			argv[0] = search_path(argv[0]);
 			if (execve(argv[0], argv, env) == -1)
 			{
 				perror(argv[0]);
