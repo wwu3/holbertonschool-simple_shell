@@ -11,7 +11,7 @@ A simple UNIX command line interpreter
   <ol>
     <li><a href="#compliation">Compliation</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#style-of-coding">style of coding</a></li>
+    <li><a href="#style-of-coding">Style of coding</a></li>
     <li><a href="#file-description">File description</a></li>
     <li> <a href="#about-the-project">About The Project</a></li>
     <li><a href="#authors">Authors</a></li>
