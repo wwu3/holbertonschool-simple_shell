@@ -1,3 +1,4 @@
+<a name="readme-top"></a>
 # Simple Shell
 A simple UNIX command line interpreter
 
@@ -8,37 +9,41 @@ A simple UNIX command line interpreter
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#Compliation">Compliation</a></li>
-    <li><a href="#Usage">Usage</a></li>
-    <li><a href="#Style of coding">style of coding</a></li>
-    <li><a href="#File description">File description</a></li>
-    <li> <a href="#About The Project">About The Project</a></li>
-    <li><a href="#Authors">Authors</a></li>
-   </ol>
- </details>  
+    <li><a href="#compliation">Compliation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#style-of-coding">style of coding</a></li>
+    <li><a href="#file-description">File description</a></li>
+    <li> <a href="#about-the-project">About The Project</a></li>
+    <li><a href="#authors">Authors</a></li>
+  </ol>
+</details>  
+
  
-<!-- Compliation -->      
-## Complilation
+<!-- COMPLIATION -->      
+## Compliation
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Usage -->
+
+<!-- USAGE -->
 ## Usage
 
 To use the shell, complie all the .c files and execute the ***hsh*** file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Style of coding -->
+
+<!-- STYLE OF CODING -->
 ## Style of coding
 
 All files are written in C programming language following the **betty style of coding**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- File description -->
+
+<!-- FILE DESCRIPTION -->
 ## File description
 
 **builtin_functions.c** -- this file is containing the definition of all the builtin functions which we are executing in this simple shell.  Such as: ***cd***, ***env***, and ***exit*** 
@@ -59,6 +64,7 @@ All files are written in C programming language following the **betty style of c
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
 
@@ -75,15 +81,16 @@ The shell reads the given input from the user and splits it into tokens if the g
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+
 ### Flowchart
 ![image](https://user-images.githubusercontent.com/113806658/206880804-92dfd2fb-7cb9-4c6d-9d6c-1d1873ea5e2d.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- AUTHORS -->
 ## Authors
-
-Matt Buckingham, Pallavi Jagtap and Wendy Wu
+***Matt Buckingham, Pallavi Jagtap and Wendy Wu***
 
 
 
