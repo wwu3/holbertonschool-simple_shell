@@ -53,17 +53,23 @@ All files are written in C programming language following the **betty style of c
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
 
+The shell reads the given input from the user and splits it into tokens if the given input is more than one word.  The first given word is recognised as the command and following words are considered as arguments to the command.  Simple shell works as follows:
+
+1. Checks if user input matches to the command, then it will execute the coprresponding function, if not then given error message.
+
+2. If executable is found, the shell forks into a child process where the command is executable following any arguments.
+
+3. The shell returns the output of the given command and it terminates the child process while the parent process waits for the child process to be terminated.
+
+4. Shell returns a new line waiting for the next user input.
+
+
 
 
 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-### Example of use
 
 
 ### Flowchart
