@@ -93,7 +93,7 @@ char *search_path(char *command)
 	return (command);
 }
 
-char *_getenv(chakr *name)
+char *_getenv(char *name)
 {
 	int i;
 	char *tmp;
