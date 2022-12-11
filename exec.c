@@ -13,7 +13,8 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		int status;
 
 		argv[0] = search_path(argv[0]);
-		if (access(argv[0], X_OK) == 0)
+
+		if (access(argv[0], X_OK) != 0)
 		{
 			perror("non executable");
 			return(-1);
