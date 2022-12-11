@@ -18,7 +18,7 @@ A simple UNIX command line interpreter
 </details>  
  
 <!-- COMPLIATION -->      
-## Complilation
+## Compliation
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
