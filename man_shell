@@ -22,6 +22,7 @@
 
  If the match is not found in both  builtin command and executables in PATH or PWD, then it prints Error Message and user return to the prompt.
 
+ 
  Builtin Commands
 
  cd -
@@ -41,7 +42,6 @@ If executable is found, the shell forks into a child process where the command i
 The shell returns the output of the given command and it terminates the child process while the parent process waits for the child process to be terminated.
 
 Shell returns a new line waiting for the next user input.
-
 
 AUTHORS
 Pallivi Jagtap, Matt Buckingham and Wendy Wu
