@@ -29,7 +29,7 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		}
 		else
 		{
-			wait(&status);
+			waitpid(child_pid, &status, 0);
 		}
 
 		return (0);
