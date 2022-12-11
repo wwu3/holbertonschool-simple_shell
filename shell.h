@@ -16,7 +16,7 @@ int split_line(char *line, char *argv[]);
 int check_builtin_func(char *argv[], char **env);
 int _execve(char *path, char *argv[], char **envp);
 int _strlen(char *s);
-int search_path(char *command);
+char *search_path(char *command);
 char *_getenv(char *name);
 
 /**

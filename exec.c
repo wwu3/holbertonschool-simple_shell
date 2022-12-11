@@ -7,58 +7,55 @@
  * @env: the environment list
  * Return: 0 if succeeds, -1 if it's eof
  */
-int _execve(__attribute__((unused)) char *path, char *argv[],
-	    __attribute__((unused))char **env)
+int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 {
-	pid_t child_pid;
-	int status;
+		pid_t child_pid;
+		int status;
 
-	if (search_path(argv[0]) == -1)
-	{
-		return(-1);
-	}
-	child_pid = fork();
-	if (child_pid == -1)
-	{
-		return (-1);
-	}
-	if (child_pid == 0)
-	{
-		if (execvp(argv[0], argv) == -1)
+		argv[0] = search_path(argv[0]);
+
+		if (access(argv[0], X_OK) != 0)
 		{
-			perror(argv[0]);
-			exit(-1);
+			perror("non executable");
+			return(-1);
 		}
-		exit(0);
-	}
-	else
-	{
-		waitpid(child_pid, &status, 0);
-	}
+		child_pid = fork();
+		if (child_pid == -1)
+		{
+			return (-1);
+		}
+		if (child_pid == 0)
+		{
+			if (execve(argv[0], argv, env) == -1)
+			{
+				perror(argv[0]);
+				exit(-1);
+			}
+			exit(0);
+		}
+		else
+		{
+			waitpid(child_pid, &status, 0);
+		}
 
-	return (0);
+		return (0);
 }
 
-int search_path(char *command)
+char *search_path(char *command)
 {
 	char *tmp, *path, *test_path;
 
-	if (access(command, X_OK) == 0)
-	{
-		return (0);
-	}
-
-        path = strdup(_getenv("PATH"));
+        path = strdup(getenv("PATH"));
 	if (path == NULL)
 	{
 		perror("strdup");
-		return (-1);
+		return (NULL);
 	}
 	test_path = malloc(128 * sizeof(char));
 	if (test_path == NULL)
 	{
 		perror("malloc");
-		return (-1);
+		return (NULL);
 	}
 
 	tmp = strtok(path, ":");
@@ -67,16 +64,13 @@ int search_path(char *command)
 		sprintf(test_path, "%s/%s", tmp, command);
 		if (access(test_path, X_OK) == 0)
 		{
-			return (0);
+			return(test_path);
 		}
 		tmp = strtok(NULL, ":");
 	}
-
 	free(test_path);
 	free(path);
-
-	printf("%s: not found\n", command);
-	return (-1);
+	return (command);
 }
 
 char *_getenv(char *name)
