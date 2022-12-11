@@ -19,14 +19,12 @@ A simple UNIX command line interpreter
 </details>  
 
  
-
 <!-- COMPLIATION -->      
 ## Compliation
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- USAGE -->
@@ -37,14 +35,12 @@ To use the shell, complie all the .c files and execute the ***hsh*** file
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- STYLE OF CODING -->
 ## Style of coding
 
 All files are written in C programming language following the **betty style of coding**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- FILE DESCRIPTION -->
@@ -67,7 +63,6 @@ All files are written in C programming language following the **betty style of c
 **split_line.c** -- this file is splitting the line into tokens using the delimiters.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -93,11 +88,9 @@ The shell reads the given input from the user and splits it into tokens if the g
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- AUTHORS -->
 ## Authors
-
-Matt Buckingham, Pallavi Jagtap and Wendy Wu
+***Matt Buckingham, Pallavi Jagtap and Wendy Wu***
 
 
 
