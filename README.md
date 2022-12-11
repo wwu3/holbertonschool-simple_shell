@@ -24,6 +24,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- USAGE -->
 ## Usage
 
@@ -31,12 +32,14 @@ To use the shell, complie all the .c files and execute the ***hsh*** file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- STYLE OF CODING -->
 ## Style of coding
 
 All files are written in C programming language following the **betty style of coding**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- FILE DESCRIPTION -->
 ## File description
@@ -59,6 +62,7 @@ All files are written in C programming language following the **betty style of c
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
 
@@ -75,10 +79,12 @@ The shell reads the given input from the user and splits it into tokens if the g
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+
 ### Flowchart
 ![image](https://user-images.githubusercontent.com/113806658/206880804-92dfd2fb-7cb9-4c6d-9d6c-1d1873ea5e2d.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- AUTHORS -->
 ## Authors
