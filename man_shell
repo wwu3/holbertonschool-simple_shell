@@ -14,7 +14,7 @@
 
  HOW IT WORKS
 
- Prompt to the user ('$'), representing that it is ready to accept user input.  After it reads the arguments and executes the commands in order which are provided by the user.
+ Prompt to the user, representing that it is ready to accept user input.  After it reads the arguments and executes the commands in order which are provided by the user.
 
  Order of execution of command -
 
@@ -35,6 +35,22 @@
  exit -
  Exits the shell
  Ex - exit
+
+If executable is found, the shell forks into a child process where the command is executable following any arguments.
+
+The shell returns the output of the given command and it terminates the child process while the parent process waits for the child process to be terminated.
+
+Shell returns a new line waiting for the next user input.
+
+
+
+
+
+
+
+
+
+
 
   AUTHORS
   Pallivi Jagtap, Matt Buckingham and Wendy Wu
