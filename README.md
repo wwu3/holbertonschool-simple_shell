@@ -22,7 +22,9 @@ A simple UNIX command line interpreter
 <!-- COMPLIATION -->      
 ## Compliation
 
+```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o hsh
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
