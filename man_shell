@@ -43,15 +43,6 @@ The shell returns the output of the given command and it terminates the child pr
 Shell returns a new line waiting for the next user input.
 
 
-
-
-
-
-
-
-
-
-
-  AUTHORS
-  Pallivi Jagtap, Matt Buckingham and Wendy Wu
+AUTHORS
+Pallivi Jagtap, Matt Buckingham and Wendy Wu
  
