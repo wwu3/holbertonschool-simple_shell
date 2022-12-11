@@ -64,6 +64,7 @@ char *search_path(char *command)
 		sprintf(test_path, "%s/%s", tmp, command);
 		if (access(test_path, X_OK) == 0)
 		{
+			free(path);
 			return(test_path);
 		}
 		tmp = strtok(NULL, ":");
