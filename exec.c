@@ -17,11 +17,12 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		if (access(argv[0], X_OK) != 0)
 		{
 			perror("non executable");
-			return(-1);
+			return (-1);
 		}
 		child_pid = fork();
 		if (child_pid == -1)
 		{
+			free(argv[0]);
 			return (-1);
 		}
 		if (child_pid == 0)
@@ -37,7 +38,7 @@ int _execve(__attribute__((unused)) char *path, char *argv[], char **env)
 		{
 			waitpid(child_pid, &status, 0);
 		}
-
+		free(argv[0]);
 		return (0);
 }
 
@@ -51,7 +52,7 @@ char *search_path(char *command)
 {
 	char *tmp, *path, *test_path;
 
-        path = strdup(_getenv("PATH"));
+	path = strdup(_getenv("PATH"));
 	if (path == NULL)
 	{
 		perror("strdup");
@@ -71,13 +72,13 @@ char *search_path(char *command)
 		if (access(test_path, X_OK) == 0)
 		{
 			free(path);
-			return(test_path);
+			return (test_path);
 		}
 		tmp = strtok(NULL, ":");
 	}
-	free(test_path);
 	free(path);
-	return (command);
+	strcpy(test_path, command);
+	return (test_path);
 }
 
 /**
@@ -87,18 +88,17 @@ char *search_path(char *command)
  */
 char *_getenv(char *name)
 {
-    int i = 0;
-    char *env_var;
+	int i = 0;
+	char *env_var;
 
-    while (environ[i] != NULL)
-    {
-	    if (strncmp(environ[i], name, strlen(name)) == 0)
-	    {
-		    env_var = &environ[i][strlen(name) + 1];
-		    return (env_var);
-	    }
-        i = i + 1;
-    }
-
-    return (NULL);
+	while (environ[i] != NULL)
+	{
+		if (strncmp(environ[i], name, strlen(name)) == 0)
+		{
+			env_var = &environ[i][strlen(name) + 1];
+			return (env_var);
+		}
+		i = i + 1;
+	}
+	return (NULL);
 }

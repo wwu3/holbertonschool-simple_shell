@@ -10,7 +10,11 @@ char *_get_line()
 	size_t buff = 0;
 	int check;
 
-	printf("$  ");
+	if (isatty(STDIN_FILENO) == 1)
+	{
+		printf("$  ");
+	}
+
 	check = getline(&line, &buff, stdin);
 	if (check == -1)
 	{
